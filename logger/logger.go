@@ -1,6 +1,7 @@
 package logger
 
 import "os"
+import "fmt"
 
 //	"log"
 const (
@@ -55,13 +56,23 @@ func DirExists(path string) bool {
 	return false
 }
 
+func createDirImpl(name string) bool {
+	err := os.MkdirAll(name, 0777)
+	if err == nil {
+		return true
+	} else {
+		fmt.Println("Error: ", err)
+		return false
+	}
+}
+
 func GetLogger(fileName string) (log *Logger) {
 	log = getLogBean()
 	if LogDir == ""{
 		panic("log Dir is not setting")
 	}
 	if !DirExists(LogDir) {
-		os.MkdirAll(LogDir, 0666)
+		createDirImpl(LogDir)
 	}
 	log.SetRollingFile(LogDir, fileName, LogMaxNumber, LogMaxSize, LogUnit)
 	log.SetLevel(LogLevel)
