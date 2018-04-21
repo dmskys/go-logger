@@ -28,7 +28,7 @@
   	//设置log目录
   	GOPATH := os.Getenv("GOPATH")
   	fmt.Println("GOPATH is ", GOPATH)
-  	LogDir := utils.JoinString(GOPATH, "/bin/logs")
+  	LogDir := GOPATH + "/bin/logs"
   	fmt.Println("logdir is ", LogDir)
   	//设置全局日志目录（必须设置全局日志目录）
   	logger.LogDir = LogDir
