@@ -15,12 +15,6 @@ type ROLLTYPE int //dailyRolling ,rollingFile
 
 const _DATEFORMAT = "2006-01-02"
 
-var LogLevel LEVEL = 1
-var LogMaxNumber int32 = 10
-var LogMaxSize int64 = 10
-var LogUnit = MB
-var LogDir string
-
 const (
 	_       = iota
 	KB UNIT = 1 << (iota * 10)
@@ -43,6 +37,12 @@ const (
 	_DAILY    ROLLTYPE = iota
 	_ROLLFILE
 )
+
+var LogLevel LEVEL = DEBUG
+var LogMaxNumber int32 = 10
+var LogMaxSize int64 = 10
+var LogUnit = MB
+var LogDir string
 
 // 判断文件夹是否存在
 func DirExists(path string) bool {
