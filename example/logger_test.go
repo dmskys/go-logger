@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/donnie4w/go-logger/logger"
+	"github.com/shuimuxiyang/go-logger/logger"
 )
 
 func _log(i int) {
