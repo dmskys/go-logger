@@ -55,8 +55,8 @@ func DirExists(path string) bool {
 	return false
 }
 
-func GetLogger(fileName string) (applog *LogBean) {
-	log := getLogBean()
+func GetLogger(fileName string) (log *Logger) {
+	log = getLogBean()
 	if LogDir == ""{
 		panic("log Dir is not setting")
 	}
@@ -65,5 +65,5 @@ func GetLogger(fileName string) (applog *LogBean) {
 	}
 	log.SetRollingFile(LogDir, fileName, LogMaxNumber, LogMaxSize, LogUnit)
 	log.SetLevel(LogLevel)
-	return log.lb
+	return
 }
