@@ -55,7 +55,7 @@ func DirExists(path string) bool {
 	return false
 }
 
-func getLogger(fileName string) (applog *LogBean) {
+func GetLogger(fileName string) (applog *LogBean) {
 	log := getLogBean()
 	if LogDir == ""{
 		panic("log Dir is not setting")
