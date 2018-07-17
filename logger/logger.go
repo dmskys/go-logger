@@ -43,6 +43,7 @@ var LogMaxNumber int32 = 10
 var LogMaxSize int64 = 10
 var LogUnit = MB
 var LogDir string
+var IsConsole = true
 
 // 判断文件夹是否存在
 func DirExists(path string) bool {
@@ -76,5 +77,6 @@ func GetLogger(fileName string) (log *Logger) {
 	}
 	log.SetRollingFile(LogDir, fileName, LogMaxNumber, LogMaxSize, LogUnit)
 	log.SetLevel(LogLevel)
+	log.SetConsole(IsConsole)
 	return
 }
